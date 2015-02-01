@@ -1,0 +1,66 @@
+h2. Sample Format
+
+pre. {
+        "name": "NodeParser",
+	"title": "Node Parser",
+	"description": "Node Parser for web developers",
+	"version": "1.0.0",
+	"parentMenu": "menuNode",
+	"menuName": "Node Parser",
+	"actions": [
+		{
+		"name": "parseNode",
+		"title": "Parse Node",
+		"parentMenu": "menuNode",
+		"shortcutKeys": "",
+		"type": "Node",
+		"functionName" : "parser.interface.parseNode",
+		"icons": {}
+		},
+		{
+		"name": "parseNodeProject",
+		"title": "Parse Project",
+		"parentMenu": "menuNode",
+		"shortcutKeys": "",
+		"type": "Node",
+		"functionName" : "parser.interface.parseNodeProject",
+		"icons": {}
+		}
+	]
+    ,
+    "files" : {
+        "Node" : ["interface"]
+    }
+    ,
+     "icons": {
+	"128": "jsonlint-logo.png"
+	},
+	"license": "Apache"
+ }
+
+h2. Explaining above terms
+
+* name : Plugin name
+* title : Plugin title
+* description : Plugin description must be brief
+* version: Plugin version
+* parentMenu: Should be "menuNode" if plugin is in Node
+
+** menuName: Plugin menu name which comes flavours menu.
+It will add action if we have single action inside actions else it will add menu with all action under that menu.
+***  actions:
+**** name: functionname in Node file which be called on this action
+**** title: Internal title
+**** parentMenu: menuNode is default and should be mention in file.
+**** shortcutKeys: Shortcut keys for this action
+**** type: Node if lang is Node
+**** functionName :  Its function path. Its similar to python import like. Example  "parser.interface.parseNodeProject" where parser is directory inside plugins and interface is Node file which contains parserNodeProject function. It under progress work.
+**** icons: Icon appear in menu
+**** --
+**** We can add more actions in similar way
+*** files: Normally we don't need to add anything here. We deprecate this.
+**** Node: It start with Node if plugins is in Node and contains just filename in json array format.
+
+*** icons: It contains icons
+**** size: filename ( Full path of file relative to resources path)
+*** license: Opensource licenses like Apache, MIT, BSD etc
