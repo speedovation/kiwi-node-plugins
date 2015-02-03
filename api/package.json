@@ -1,0 +1,23 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "KineticWing IDE api and node js bridge library",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/speedovation/kiwi-node-plugins"
+  },
+  "keywords": [
+    "KineticWing IDE",
+    "PHP IDE",
+    "PHP Editor"
+  ],
+  "author": "Yash B < yash@speedovation.com>",
+  "license": "Apache License 2.0",
+  "bugs": {
+    "url": "https://github.com/speedovation/kiwi-node-plugins/issues"
+  }
+}
