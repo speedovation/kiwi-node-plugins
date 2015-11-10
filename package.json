@@ -1,0 +1,36 @@
+{
+  "name": "kiwi-node-plugins",
+  "version": "2.0.0",
+  "description": "Kineticwing IDE Plugins Using nodejs",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "dependencies": {
+    "emmet": "*",
+    "css": "*",
+    "jayson": "*",
+    "net": "*",
+    "nodejs": "*",
+    "q": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/speedovation/kiwi-node-plugins.git"
+  },
+  "keywords": [
+    "KineticWing IDE",
+    "PHP IDE",
+    "PHP Editor"
+  ],
+  "author": "Yash <yash@speedovation.org>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/speedovation/kiwi-node-plugins/issues"
+  },
+  "homepage": "https://github.com/speedovation/kiwi-node-plugins#readme"
+}
