@@ -37,13 +37,13 @@ module.exports = function (info) {
                 console.log(res);
                 this.response = res;
                 
-                callback(response);
+                callback(this.response);
             })
         }
             
         
     }
-    
+    return client;
     return new apiClass();
 
 }

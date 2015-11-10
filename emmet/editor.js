@@ -4,7 +4,16 @@
  * should run acttion multiple times and update `selectionIndex`
  * property on each iteration.
  */
-define(['emmet/utils/common', 'emmet/utils/action', 'emmet/assets/resources', 'emmet/assets/tabStops'], function(utils, actionUtils, res, tabStops) {
+module.exports = function () {
+
+//utils, actionUtils, res, tabStops
+
+var utils = require('emmet/utils/common');
+var actionUtils = require('emmet/utils/action');
+var res = require('emmet/assets/resources');
+var tabStops = require('emmet/assets/tabStops');
+
+//define(['emmet/utils/common', 'emmet/utils/action', 'emmet/assets/resources', 'emmet/assets/tabStops'],
 	/**
 	 * Converts CM’s inner representation of character
 	 * position (line, ch) to character index in text
@@ -201,4 +210,4 @@ define(['emmet/utils/common', 'emmet/utils/action', 'emmet/assets/resources', 'e
 			return res.hasSyntax(this.getSyntax());
 		}
 	};
-});
+};

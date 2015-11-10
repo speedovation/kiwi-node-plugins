@@ -1,7 +1,16 @@
 /**
  * Emmet plugin for CodeMirror
  */
-define(['./editor', 'emmet/emmet'], function(editor, emmet) {
+
+module.exports = function () {
+
+//utils, actionUtils, res, tabStops
+
+var editor = require('./editor');
+var emmet = require('emmet/emmet');
+
+
+//define(['./editor', 'emmet/emmet'], function(editor, emmet) {
 	var mac = /Mac/.test(navigator.platform);
 	var defaultKeymap = {
 		'Cmd-E': 'expand_abbreviation',
@@ -176,6 +185,10 @@ define(['./editor', 'emmet/emmet'], function(editor, emmet) {
 			});
 		},
 
+		yash: function(){
+			return 'Mayon';
+		},
+
 		addKeybinding: addKeybinding,
 
 		/**
@@ -198,4 +211,4 @@ define(['./editor', 'emmet/emmet'], function(editor, emmet) {
 			}
 		}
 	};
-});
+};
