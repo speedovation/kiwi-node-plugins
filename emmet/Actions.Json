@@ -1,0 +1,39 @@
+{
+	"name" : "Emmet",
+	"title" : "Emmet Actions",
+	"description" : "Emmet Actions For Web Developers",
+	"version" : "2.0.0",
+	"parentMenu" : "menuEmmet",
+	"menuName" : "Emmet Actions",
+	"actions": [
+		{
+        		"name": "wrapWithAbbr",
+        		"title": "Wrap With Abbr",
+        		"parentMenu": "menuEmmet",
+        		"shortcutKeys": "Ctrl+E",
+        		"type": "node",
+        		"functionName" : "emmet.index.expandWrap",
+        		"icons": {}
+		},
+		{
+        		"name": "expandAbbr",
+        		"title": "Expand Abbr",
+        		"parentMenu": "menuEmmet",
+        		"shortcutKeys": "tab",
+        		"type": "node",
+        		"functionName" : "emmet.index.expand",
+        		"icons": {}
+		}
+	]
+    ,
+    "files" : {
+        "node" : [ "index"]
+    
+    }
+    , 
+
+	"icons": {
+	"128": "jsonlint-logo.png"
+	},
+	"license": "Apache"
+}
