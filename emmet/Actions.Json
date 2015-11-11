@@ -21,7 +21,7 @@
         		"parentMenu": "menuEmmet",
         		"shortcutKeys": "tab",
         		"type": "node",
-        		"functionName" : "emmet.index.expand",
+        		"functionName" : "emmet.index.expandTab",
         		"icons": {}
 		}
 	]

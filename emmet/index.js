@@ -19,22 +19,36 @@ console.log("function: " + funcstr);
 //var v = expand.expand('ul+',{});
 //console.log( "V: " + v );  div.class
 
-x.expandWrap =function() { api.request('selectedText',[], function(err, errors, res){
-    
-    if(err)
-    {
-        this.error = errors;
-        console.log('Err:' + errors); 
-    }
-    
-    var v = expand.expand(res, {});
 
-    console.log("Result: " + res + " | " + v);
 
-})
+x.expandTab = function() { 
+
+    api.request('selectedText',[], function(err, errors, res){
+    
+        if(err)
+        {
+            this.error = errors;
+            console.log('Err:' + errors); 
+        }
+        
+        var v = expand.expand(res, {});
+    
+        console.log("Result: " + res + " | " + v);
+        
+        api.request('replaceSelectedText',[v], function(err, errors, res){
+       
+            console.log('Replaced Done');
+        
+        });
+        
+
+    });
 
 }
-// ul+
+
+
+// div#id.class.another
+
 //x.expandWrap();
 
 x[funcstr]();
