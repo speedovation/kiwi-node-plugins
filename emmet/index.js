@@ -47,6 +47,52 @@ x.expandTab = function() {
 }
 
 
+var parser = require('emmet/lib/parser/abbreviation');
+var action = require('emmet/lib/action/wrapWithAbbreviation');
+var utils  = require('emmet/lib/utils/common');
+
+x.expandWrap = function() { 
+    var content;
+
+    api.request('getInputText',[], function(err, errors, res){
+     
+        console.log("Result: " + res );
+        
+        content = res;    
+    
+
+        api.request('selectedText',[], function(err, errors, abbr){
+        
+            if(err)
+            {
+                this.error = errors;
+                console.log('Err:' + errors); 
+            }
+            
+            var v = expand.expand(res, {});
+            
+            content = utils.escapeText(content);
+    	        var v = parser.expand(abbr, {
+    	            pastedContent: content, 
+    	            syntax: 'html', 
+    	            profile: 'plain'
+    	        });
+        
+            console.log("Result: " + res + " | " + v);
+            
+            api.request('replaceSelectedText',[v], function(err, errors, res){
+           
+                console.log('Replaced Done');
+            
+            });
+            
+    
+        });
+    
+    })
+
+}
+
 // div#id.class.another
 
 //x.expandWrap();
