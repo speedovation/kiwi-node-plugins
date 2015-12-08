@@ -23,7 +23,7 @@ console.log("function: " + funcstr);
 
 x.expandTab = function() { 
 
-    api.request('selectedText',[], function(err, errors, res){
+    api.request('selected_text',[], function(err, errors, res){
     
         if(err)
         {
@@ -35,7 +35,7 @@ x.expandTab = function() {
     
         console.log("Result: " + res + " | " + v);
         
-        api.request('replaceSelectedText',[v], function(err, errors, res){
+        api.request('replace_selected_text',[v], function(err, errors, res){
        
             console.log('Replaced Done');
         
@@ -54,14 +54,14 @@ var utils  = require('emmet/lib/utils/common');
 x.expandWrap = function() { 
     var content;
 
-    api.request('getInputText',[], function(err, errors, res){
+    api.request('get_input_text',[], function(err, errors, res){
      
         console.log("Result: " + res );
         
         content = res;    
     
 
-        api.request('selectedText',[], function(err, errors, abbr){
+        api.request('selected_text',[], function(err, errors, abbr){
         
             if(err)
             {
@@ -80,7 +80,7 @@ x.expandWrap = function() {
         
             console.log("Result: " + res + " | " + v);
             
-            api.request('replaceSelectedText',[v], function(err, errors, res){
+            api.request('replace_selected_text',[v], function(err, errors, res){
            
                 console.log('Replaced Done');
             
