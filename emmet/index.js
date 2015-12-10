@@ -35,16 +35,49 @@ function return_result(method,params)
 
 x.expand_tab = function() { 
 
-	
 	var v = expand.expand(api_functions.selected_text, {});
-	
-	//console.log(v) 
-	
-	
 	
 	return return_result('replace_selected_text',[v]);
 
-    api.request('selected_text',[], function(err, errors, res){
+}
+
+
+var parser = require('emmet/lib/parser/abbreviation');
+var action = require('emmet/lib/action/wrapWithAbbreviation');
+var utils  = require('emmet/lib/utils/common');
+
+x.expand_wrap = function() { 
+    
+    
+    var input = api_functions.input_dialog;
+    var selected_text = api_functions.selected_text;
+      
+	
+	input = utils.escapeText(input);
+	
+	var v = parser.expand(input, {
+			pastedContent: selected_text, 
+			syntax: 'html', 
+			profile: 'plain'
+		});
+		
+	return return_result('replace_selected_text',[v]);
+
+   // console.log("Result: " + res + " | " + v);
+            
+           
+
+}
+
+// div#id.class.another
+
+//x.expandWrap();
+
+x[funcstr]();
+
+/* old style and still supported
+ * 
+ *  api.request('selected_text',[], function(err, errors, res){
     
         if(err)
         {
@@ -65,17 +98,7 @@ x.expand_tab = function() {
 
     });
 
-}
-
-
-var parser = require('emmet/lib/parser/abbreviation');
-var action = require('emmet/lib/action/wrapWithAbbreviation');
-var utils  = require('emmet/lib/utils/common');
-
-x.expand_wrap = function() { 
-    var content;
-
-    api.request('get_input_text',[], function(err, errors, res){
+ api.request('get_input_text',[], function(err, errors, res){
      
         console.log("Result: " + res );
         
@@ -111,11 +134,5 @@ x.expand_wrap = function() {
         });
     
     })
-
-}
-
-// div#id.class.another
-
-//x.expandWrap();
-
-x[funcstr]();
+    * 
+    */

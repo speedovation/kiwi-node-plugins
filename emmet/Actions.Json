@@ -11,7 +11,7 @@
         		"title": "Wrap With Abbr",
         		"parentMenu": "menuEmmet",
         		"shortcutKeys": "Ctrl+E",
-        		"command" : "node emmet/index.js expand_wrap selected_text:get_input_text",
+        		"command" : "node emmet/index.js expand_wrap selected_text:input_dialog",
         		"icons": {}
 		},
 		{
