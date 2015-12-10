@@ -19,9 +19,22 @@ console.log("function: " + funcstr);
 //var v = expand.expand('ul+',{});
 //console.log( "V: " + v );  div.class
 
+var jsonstr = process.argv[3]
+
+//console.log("JSON: " + JSON.parse([jsonstr]) );
+
+var api_functions = JSON.parse([jsonstr]);
+
+//console.log( v['selected_text'] )
 
 
-x.expandTab = function() { 
+x.expand_tab = function() { 
+
+	var v = expand.expand(api_functions['selected_text'], {});
+	
+	console.log(v) 
+	
+	return;
 
     api.request('selected_text',[], function(err, errors, res){
     
@@ -51,7 +64,7 @@ var parser = require('emmet/lib/parser/abbreviation');
 var action = require('emmet/lib/action/wrapWithAbbreviation');
 var utils  = require('emmet/lib/utils/common');
 
-x.expandWrap = function() { 
+x.expand_wrap = function() { 
     var content;
 
     api.request('get_input_text',[], function(err, errors, res){
