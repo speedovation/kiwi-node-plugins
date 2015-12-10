@@ -14,27 +14,35 @@ var x = { }; // better would be to have module create an object
 
 var funcstr = process.argv[2];
 
-console.log("function: " + funcstr);
+//console.log("function: " + funcstr);
 
 //var v = expand.expand('ul+',{});
 //console.log( "V: " + v );  div.class
 
 var jsonstr = process.argv[3]
 
-//console.log("JSON: " + JSON.parse([jsonstr]) );
+//console.log("JSON: " + jsonstr );
 
 var api_functions = JSON.parse([jsonstr]);
 
-//console.log( v['selected_text'] )
+//console.log( api_functions.selected_text )
+
+function return_result(method,params)
+{
+	console.log('{ "method" : "' + method + '", "params" : ["'+ params +'"]}')
+}
 
 
 x.expand_tab = function() { 
 
-	var v = expand.expand(api_functions['selected_text'], {});
 	
-	console.log(v) 
+	var v = expand.expand(api_functions.selected_text, {});
 	
-	return;
+	//console.log(v) 
+	
+	
+	
+	return return_result('replace_selected_text',[v]);
 
     api.request('selected_text',[], function(err, errors, res){
     
