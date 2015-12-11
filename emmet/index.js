@@ -36,7 +36,7 @@ function return_result(method,params)
 x.expand_tab = function() { 
 
 	var v = expand.expand(api_functions.selected_text, {});
-	
+	v = v.replace(/"/g, "'");
 	return return_result('replace_selected_text',[v]);
 
 }
@@ -60,6 +60,8 @@ x.expand_wrap = function() {
 			syntax: 'html', 
 			profile: 'plain'
 		});
+	
+	v = v.replace(/"/g, "'");
 		
 	return return_result('replace_selected_text',[v]);
 
