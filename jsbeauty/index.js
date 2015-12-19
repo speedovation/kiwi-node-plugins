@@ -51,4 +51,18 @@ x.format_js = function() {
 
 }
 
+x.format_json = function() { 
+
+    var exec = require('child_process').exec;
+    var cmd = 'node underscore pretty --in '+ api_functions.file_path;
+	console.log("Cmd: " + cmd);
+    
+    exec(cmd, function(error, stdout, stderr) {
+      // command output is in stdout
+		console.log("Out:" + stdout);
+    });
+
+}
+
+
 x[funcstr]();

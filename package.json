@@ -12,7 +12,9 @@
     "jayson": "*",
     "net": "*",
     "nodejs": "*",
-    "q": "*"
+    "q": "*",
+    "underscore-cli" : "*",
+    "uglifyjs" : "*"
   },
   "devDependencies": {},
   "scripts": {
@@ -27,7 +29,7 @@
     "PHP IDE",
     "PHP Editor"
   ],
-  "author": "Yash <yash@speedovation.org>",
+  "author": "Yash <yash@speedovation.com>",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/speedovation/kiwi-node-plugins/issues"

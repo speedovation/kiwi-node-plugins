@@ -1,0 +1,29 @@
+{
+	"name" : "JsParser",
+	"title" : "JsParser Actions",
+	"description" : "JsParser Actions For Web Developers",
+	"version" : "2.0.0",
+	"parentMenu" : "menuJsParser",
+	"menuName" : "JsParser Actions",
+	"actions": [
+		{
+        		"name": "parserJs",
+        		"title": "Parser Js",
+        		"parentMenu": "menuJsParser",
+        		"shortcutKeys": "Ctrl+Shift+j",
+        		"command" : "node parser/index.js parse_js selected_text:file_path",
+        		"icons": {}
+		}
+	]
+    ,
+    "files" : {
+        "node" : [ "index"]
+    
+    }
+    , 
+
+	"icons": {
+	"128": "jsonlint-logo.png"
+	},
+	"license": "Apache"
+}
