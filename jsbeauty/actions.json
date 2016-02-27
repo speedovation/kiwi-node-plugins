@@ -1,46 +1,65 @@
 {
-	"name" : "JsBeauty",
-	"title" : "JsBeauty Actions",
-	"description" : "JsBeauty Actions For Web Developers",
-	"version" : "2.0.0",
-	"parentMenu" : "menuJsBeauty",
-	"menuName" : "JsBeauty Actions",
-	"actions": [
-		{
-        		"name": "formatHtml",
-        		"title": "Format html",
-        		"parentMenu": "menuJsBeauty",
-        		"shortcutKeys": "Ctrl+Shift+j",
-        		"command" : "node jsbeauty/index.js format_html selected_text",
-        		"icons": {}
-		},
-		{
-        		"name": "formatJs",
-        		"title": "Format JavaScript",
-        		"parentMenu": "menuJsBeauty",
-        		"shortcutKeys": "Ctrl+Shift+k",
-        		"command" : "node jsbeauty/index.js format_js selected_text:file_path",
-        		"icons": {}
-		}
-		,
-		{
-        		"name": "formatJson",
-        		"title": "Format Json",
-        		"parentMenu": "menuJsBeauty",
-        		"shortcutKeys": "",
-        		"command" : "node jsbeauty/index.js format_json selected_text:file_path",
-        		"icons": {}
-		}
-	]
-    ,
-    "files" : {
-        "node" : [ "index"]
-    
-    }
-    , 
-
-	"icons": {
-	"128": "jsonlint-logo.png"
-	},
-	"license": "Apache"
+    "name": "JsBeauty",
+    "title": "JsBeauty Actions",
+    "description": "JsBeauty Actions For Web Developers",
+    "version": "2.0.0",
+    "parentMenu": "menuJsBeauty",
+    "menuName": "JsBeauty Actions",
+    "actions": [
+        {
+            "name": "formatHtml",
+            "title": "Format html",
+            "parentMenu": "menuJsBeauty",
+            "shortcutKeys": "Ctrl+Shift+j",
+            "click_event": {
+                "type": "",
+                "signal": "",
+                "command": "node jsbeauty/index.js format_html",
+                "available_methods": "selected_text",
+                "after_success_methods": "",
+                "after_failure_methods": ""
+            },
+            "icons": {}
+        },
+        {
+            "name": "formatJs",
+            "title": "Format JavaScript",
+            "parentMenu": "menuJsBeauty",
+            "shortcutKeys": "Ctrl+Shift+k",
+            "click_event": {
+                "type": "",
+                "signal": "",
+                "command": "node jsbeauty/index.js format_js",
+                "available_methods": "selected_text:file_path",
+                "after_success_methods": "",
+                "after_failure_methods": ""
+            },
+            "command": " ",
+            "icons": {}
+        },
+        {
+            "name": "formatJson",
+            "title": "Format Json",
+            "parentMenu": "menuJsBeauty",
+            "shortcutKeys": "",
+            "click_event": {
+                "type": "",
+                "signal": "",
+                "command": "node jsbeauty/index.js format_json",
+                "available_methods": "selected_text:file_path",
+                "after_success_methods": "",
+                "after_failure_methods": ""
+            },
+            "icons": {}
+        }
+    ],
+    "files": {
+        "node": [
+            "index"
+        ]
+    },
+    "icons": {
+        "128": "jsonlint-logo.png"
+    },
+    "license": "Apache"
 }

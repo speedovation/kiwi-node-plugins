@@ -1,37 +1,50 @@
 {
-	"name" : "Emmet",
-	"title" : "Emmet Actions",
-	"description" : "Emmet Actions For Web Developers",
-	"version" : "2.0.0",
-	"parentMenu" : "menuEmmet",
-	"menuName" : "Emmet Actions",
-	"actions": [
-		{
-        		"name": "wrapWithAbbr",
-        		"title": "Wrap With Abbr",
-        		"parentMenu": "menuEmmet",
-        		"shortcutKeys": "Ctrl+E",
-        		"command" : "node emmet/index.js expand_wrap selected_text:input_dialog",
-        		"icons": {}
-		},
-		{
-        		"name": "expandAbbr",
-        		"title": "Expand Abbr",
-        		"parentMenu": "menuEmmet",
-        		"shortcutKeys": "tab",
-        		"command" : "node emmet/index.js expand_tab selected_text:file_path",
-        		"icons": {}
-		}
-	]
-    ,
-    "files" : {
-        "node" : [ "index"]
-    
-    }
-    , 
-
-	"icons": {
-	"128": "jsonlint-logo.png"
-	},
-	"license": "Apache"
+    "name": "Emmet",
+    "title": "Emmet Actions",
+    "description": "Emmet Actions For Web Developers",
+    "version": "2.0.0",
+    "parentMenu": "menuEmmet",
+    "menuName": "Emmet Actions",
+    "actions": [
+        {
+            "name": "wrapWithAbbr",
+            "title": "Wrap With Abbr",
+            "parentMenu": "menuEmmet",
+            "shortcutKeys": "Ctrl+E",
+            "click_event": {
+                "type": "",
+                "signal": "",
+                "command": "node emmet/index.js expand_wrap",
+                "available_methods": "selected_text:input_dialog",
+                "after_success_methods": "",
+                "after_failure_methods": ""
+            },
+            "icons": {}
+        },
+        {
+            "name": "expandAbbr",
+            "title": "Expand Abbr",
+            "parentMenu": "menuEmmet",
+            "shortcutKeys": "tab",
+            "click_event": {
+                "type": "",
+                "signal": "",
+                "command": "node emmet/index.js expand_tab",
+                "available_methods": "selected_text:file_path",
+                "after_success_methods": "",
+                "after_failure_methods": ""
+            },
+            "command": "selected_text:file_path",
+            "icons": {}
+        }
+    ],
+    "files": {
+        "node": [
+            "index"
+        ]
+    },
+    "icons": {
+        "128": "jsonlint-logo.png"
+    },
+    "license": "Apache"
 }

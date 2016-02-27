@@ -1,29 +1,34 @@
 {
-	"name" : "JsParser",
-	"title" : "JsParser Actions",
-	"description" : "JsParser Actions For Web Developers",
-	"version" : "2.0.0",
-	"parentMenu" : "menuJsParser",
-	"menuName" : "JsParser Actions",
-	"actions": [
-		{
-        		"name": "parserJs",
-        		"title": "Parser Js",
-        		"parentMenu": "menuJsParser",
-        		"shortcutKeys": "Ctrl+Shift+j",
-        		"command" : "node parser/index.js parse_js selected_text:file_path",
-        		"icons": {}
-		}
-	]
-    ,
-    "files" : {
-        "node" : [ "index"]
-    
-    }
-    , 
-
-	"icons": {
-	"128": "jsonlint-logo.png"
-	},
-	"license": "Apache"
+    "name": "JsParser",
+    "title": "JsParser Actions",
+    "description": "JsParser Actions For Web Developers",
+    "version": "2.0.0",
+    "parentMenu": "menuJsParser",
+    "menuName": "JsParser Actions",
+    "actions": [
+        {
+            "name": "parserJs",
+            "title": "Parser Js",
+            "parentMenu": "menuJsParser",
+            "shortcutKeys": "Ctrl+Shift+j",
+            "click_event": {
+                "type": "",
+                "signal": "",
+                "command": "node parser/index.js parse_js",
+                "available_methods": "selected_text:file_path",
+                "after_success_methods": "",
+                "after_failure_methods": ""
+            },
+            "icons": {}
+        }
+    ],
+    "files": {
+        "node": [
+            "index"
+        ]
+    },
+    "icons": {
+        "128": "jsonlint-logo.png"
+    },
+    "license": "Apache"
 }
