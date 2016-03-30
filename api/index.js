@@ -1,3 +1,5 @@
+var escapeJSON = require('escape-json-node');
+
 module.exports = function (info) {
 
     var jayson = require('jayson');
@@ -34,7 +36,10 @@ module.exports = function (info) {
                 {
                     this.error = errors; 
                 }
-                console.log(res);
+                //console.log(res);
+                
+                res = escapeJSON(res);
+                
                 this.response = res;
                 
                 callback(this.response);

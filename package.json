@@ -14,7 +14,10 @@
     "nodejs": "*",
     "q": "*",
     "underscore-cli" : "*",
-    "uglifyjs" : "*"
+    "uglifyjs" : "*",
+    "commander" : "*",	
+    "js-beautify" : "*",
+    "escape-json-node" : "*"
   },
   "devDependencies": {},
   "scripts": {

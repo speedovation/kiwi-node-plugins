@@ -1,4 +1,6 @@
 var api = require('./../api');
+var escapeJSON = require('escape-json-node');
+
 api = api();
 
 var beautify_js = require('js-beautify'); 
@@ -34,12 +36,46 @@ x.format_html = function() {
     //check if selected_text found
 	// if not call a json rpc and get full text and
 	// set it using
+	api.request('text',[], function(err, errors, res){
+    
+        if(err)
+        {
+            this.error = errors;
+            console.log('Err:' + errors); 
+			return;
+        }
+        
+        //console.log("Result: " + res );
+		
+		//"<html><head><meta charset='UTF-8' /><title>Document</title></head><body></body></html>"
+		var res = beautify_html(res);
+		
+		res = escapeJSON('"'+res+'"');
+		
+		console.log(res);
+		
+		
+		var JSONString = 'Acceptance says, "True,"" this is ' +
+'my situation at the moment. I\'ll look unblinkingly at the reality of it. ' +
+'But I will also open my hands to accept willingly whatever a loving ' +
+'Father sends me.""}';
+ 
+JSONString = escapeJSON(JSONString);
+ 
+console.log(JSONString);
+		
+		return;
+    
+    		return return_result('replace_selected_text',[res]);
+        
+    });
+	
+	
+	
 	
 	//api_functions.selected_text
 	
-	var res = beautify_html("<html><head><meta charset='UTF-8' /><title>Document</title></head><body></body></html>");
-    
-    return return_result('replace_selected_text',[res]);
+	
 
 }
 
