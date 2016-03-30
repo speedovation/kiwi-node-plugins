@@ -61,7 +61,7 @@ describe('Jayson.Utils', function() {
     });
 
     it('should return the correct names when passed a odd-formatted function', function() {
-      var func = function     (a, b            , __b) { 
+      var func = function     (a, b            , __b) {
         func(2, 3, 55, 4);
         return a + b;
       };
@@ -120,7 +120,7 @@ describe('Jayson.Utils', function() {
       var obj = {asdf: true, complex: {value: 2, a: 3}};
 
       parseBody(stream, {}, function(err, result) {
-        if(err) throw err;
+        if(err) return done(err);
         obj.should.eql(result);
         done();
       });
@@ -133,7 +133,7 @@ describe('Jayson.Utils', function() {
       var arr = [{first: true}, {asdf: true, complex: {value: 2, a: 3}}];
 
       parseBody(stream, {}, function(err, result) {
-        if(err) throw err;
+        if(err) return done(err);
         arr.should.eql(result);
         done();
       });
@@ -151,7 +151,25 @@ describe('Jayson.Utils', function() {
 
       stream.end("\"");
     });
-  
+
+  });
+
+  describe('stringify', function(done) {
+
+    it('should not throw with circular JSON reference', function(done) {
+
+      var foo = {};
+      var bar = { foo: foo };
+      foo.bar = bar;
+
+      var fn = utils.JSON.stringify(bar, {}, function(err, str) {
+        should(err).not.exist;
+        done();
+      });
+
+      should(fn).not.throw();
+    });
+
   });
 
 });

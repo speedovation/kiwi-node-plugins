@@ -1,6 +1,6 @@
 var jayson = require(__dirname + '/../..');
-var fs = require('fs')
-var path = require('path')
+var fs = require('fs');
+var path = require('path');
 
 // Read node's tls documentation for more information about these options:
 // https://nodejs.org/api/tls.html#tls_tls_connect_options_callback
@@ -18,7 +18,7 @@ var options = {
 var client = jayson.client.tls(options);
 
 // invoke "add"
-client.request('add', [1, 1], function(err, error, response) {
+client.request('add', [1, 1], function(err, response) {
   if(err) throw err;
-  console.log(response); // 2!
+  console.log(response.result); // 2
 });
