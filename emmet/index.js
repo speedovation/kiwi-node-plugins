@@ -3,6 +3,39 @@ api = api();
 var plugin = require('./plugin');
 var expand = require('./expand');
 expand = expand()
+var jsesc = require('jsesc');
+
+var winston = require('winston');
+winston.emitErrs = true;
+
+var logger = new winston.Logger({
+    transports: [
+        new winston.transports.File({
+            level: 'debug',
+            filename: './all-logs.log',
+            handleExceptions: true,
+            json: false,
+            maxsize: 5242880, //5MB
+            maxFiles: 5,
+            colorize: false
+        }),
+        new winston.transports.Console({
+            level: 'info',
+            handleExceptions: true,
+            json: false,
+            colorize: true
+        })
+    ],
+    exitOnError: false
+});
+
+module.exports = logger;
+module.exports.stream = {
+    write: function(message, encoding){
+        logger.info(message);
+    }
+};
+
 
 var x = { }; // better would be to have module create an object
 
@@ -19,13 +52,15 @@ var funcstr = process.argv[2];
 //var v = expand.expand('ul+',{});
 //console.log( "V: " + v );  div.class
 
-var jsonstr = process.argv[3]
+var jsonstr = process.argv[3];
 
-//console.log("JSON: " + jsonstr );
+//jsonstr = jsonstr.replace(/\\/g, "");
+
+//logger.info("JSON: " + jsonstr );
 
 var api_functions = JSON.parse([jsonstr]);
 
-//console.log( api_functions.selected_text )
+logger.debug( api_functions.selected_text )
 
 function return_result(method,params)
 {
@@ -35,6 +70,9 @@ function return_result(method,params)
 
 x.expand_tab = function() { 
 
+    logger.debug("Expand tab: "+api_functions.file_path )
+    //console.info("Expand tab: "+api_functions.file_path )
+    
 	var v = expand.expand(api_functions.selected_text, {});
 	v = v.replace(/"/g, "'");
 	return return_result('replace_selected_text',[v]);
@@ -52,7 +90,7 @@ x.expand_wrap = function() {
     var input = api_functions.input_dialog;
     var selected_text = api_functions.selected_text;
       
-	
+	logger.info("expand_wrap: " + api_functions.selected_text );
 	input = utils.escapeText(input);
 	
 	var v = parser.expand(input, {
@@ -60,6 +98,8 @@ x.expand_wrap = function() {
 			syntax: 'html', 
 			profile: 'plain'
 		});
+        
+        
 	
 	v = v.replace(/"/g, "'");
 		

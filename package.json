@@ -17,7 +17,8 @@
     "uglifyjs" : "*",
     "commander" : "*",	
     "js-beautify" : "*",
-    "escape-json-node" : "*"
+    "jsesc" : "*",
+    "winston" : "*"
   },
   "devDependencies": {},
   "scripts": {

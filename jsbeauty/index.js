@@ -1,5 +1,5 @@
 var api = require('./../api');
-var escapeJSON = require('escape-json-node');
+var jsesc = require('jsesc');
 
 api = api();
 
@@ -19,9 +19,15 @@ var beautify_html = require('js-beautify').html;
 var funcstr = process.argv[2];
 var jsonstr = process.argv[3]
 
+//jsonstr = JSON.stringify(jsonstr);
+
 //console.log(funcstr + "|" + jsonstr);
 
 var api_functions = JSON.parse([jsonstr]);
+//return;
+
+
+//console.log(api_functions.file_path)
 
 var x = { }; // better would be to have module create an object
 
@@ -50,21 +56,32 @@ x.format_html = function() {
 		//"<html><head><meta charset='UTF-8' /><title>Document</title></head><body></body></html>"
 		var res = beautify_html(res);
 		
-		res = escapeJSON('"'+res+'"');
 		
-		console.log(res);
+		//console.log(res);
+		
+		//console.log("------------");
+		
+		//res = escapeJSON(res);
+		
+		res = res.replace(/"/g, "\\\"");
+		// Cover these also
+/*		\/
+\b
+\f
+\n
+\r
+\t
+\u*/ 
 		
 		
-		var JSONString = 'Acceptance says, "True,"" this is ' +
-'my situation at the moment. I\'ll look unblinkingly at the reality of it. ' +
-'But I will also open my hands to accept willingly whatever a loving ' +
-'Father sends me.""}';
+		//res = jsesc(res, {  'json': true  } );
+		
+		//console.log(res);
+		
+		
  
-JSONString = escapeJSON(JSONString);
- 
-console.log(JSONString);
+
 		
-		return;
     
     		return return_result('replace_selected_text',[res]);
         
