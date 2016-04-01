@@ -4,7 +4,7 @@
     "description": "JsBeauty Actions For Web Developers",
     "version": "2.0.0",
     "parentMenu": "menuJsBeauty",
-    "menuName": "JsBeauty Actions",
+    "menuName": "Formatters",
     "actions": [
         {
             "name": "formatHtml",
