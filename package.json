@@ -14,6 +14,7 @@
     "winston" : "*",
     "emmet": "*",
     "js-beautify" : "*",
+    "less" : "*",
     "css": "*",
     "net": "*",
     "uglifyjs" : "*"
