@@ -1,4 +1,4 @@
-var escapeJSON = require('escape-json-node');
+var jsesc = require('jsesc');
 
 module.exports = function (info) {
 
@@ -38,7 +38,7 @@ module.exports = function (info) {
                 }
                 //console.log(res);
                 
-                res = escapeJSON(res);
+                res = jsesc(res, {  'json': true  } );
                 
                 this.response = res;
                 

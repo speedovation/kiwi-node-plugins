@@ -7,18 +7,17 @@
     "doc": "doc"
   },
   "dependencies": {
-    "emmet": "*",
-    "css": "*",
-    "jayson": "*",
-    "net": "*",
     "nodejs": "*",
-    "q": "*",
-    "underscore-cli" : "*",
-    "uglifyjs" : "*",
+    "jayson": "*",
     "commander" : "*",	
-    "js-beautify" : "*",
     "jsesc" : "*",
-    "winston" : "*"
+    "winston" : "*",
+    "emmet": "*",
+    "js-beautify" : "*",
+    "css": "*",
+    "net": "*",
+    "uglifyjs" : "*"
+
   },
   "devDependencies": {},
   "scripts": {

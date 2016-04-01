@@ -45,22 +45,46 @@ var x = { }; // better would be to have module create an object
   //console.log(index + ': ' + val);
 //});
 
-var funcstr = process.argv[2];
 
 //console.log("function: " + funcstr);
 
 //var v = expand.expand('ul+',{});
 //console.log( "V: " + v );  div.class
 
-var jsonstr = process.argv[3];
 
 //jsonstr = jsonstr.replace(/\\/g, "");
 
 //logger.info("JSON: " + jsonstr );
 
+/*var funcstr = process.argv[2];
+var jsonstr = process.argv[3];
 var api_functions = JSON.parse([jsonstr]);
-
 logger.debug( api_functions.selected_text )
+*/
+
+var program = require('commander');
+
+program
+  .version('0.0.1')
+  .arguments('<func> [data]')
+  .action(function (func, data) {
+     funcValue = func;
+     dataValue = JSON.parse(data);
+  });
+
+program.parse(process.argv);
+
+if (typeof funcValue === 'undefined') {
+   console.error('no command given!');
+   process.exit(1);
+}
+
+//console.log('function:', funcValue);
+//console.log('data:', dataValue);
+//console.log('data file path:', dataValue.file_path);
+
+
+
 
 function return_result(method,params)
 {
@@ -70,10 +94,10 @@ function return_result(method,params)
 
 x.expand_tab = function() { 
 
-    logger.debug("Expand tab: "+api_functions.file_path )
+    logger.debug("Expand tab: "+dataValue.file_path )
     //console.info("Expand tab: "+api_functions.file_path )
     
-	var v = expand.expand(api_functions.selected_text, {});
+	var v = expand.expand(dataValue.selected_text, {});
 	v = v.replace(/"/g, "'");
 	return return_result('replace_selected_text',[v]);
 
@@ -87,10 +111,10 @@ var utils  = require('emmet/lib/utils/common');
 x.expand_wrap = function() { 
     
     
-    var input = api_functions.input_dialog;
-    var selected_text = api_functions.selected_text;
+    var input = dataValue.input_dialog;
+    var selected_text = dataValue.selected_text;
       
-	logger.info("expand_wrap: " + api_functions.selected_text );
+	logger.info("expand_wrap: " + dataValue.selected_text );
 	input = utils.escapeText(input);
 	
 	var v = parser.expand(input, {
@@ -115,7 +139,7 @@ x.expand_wrap = function() {
 
 //x.expandWrap();
 
-x[funcstr]();
+x[funcValue]();
 
 /* old style and still supported
  * 
