@@ -8,8 +8,13 @@ module.exports = function (info) {
     var client = jayson.client.tcp({
       port: 9040,
       hostname: '127.0.0.1',
-      headers: {}
+      headers: {},
+      return_result : function (method, params) {
+            console.log('{ "method" : "' + method + '", "params" : ["' + params + '"]}');
+        }  
     });
+    
+    
     
     var result;
     var error;
@@ -45,6 +50,9 @@ module.exports = function (info) {
                 callback(this.response);
             })
         }
+        
+        
+
             
         
     }
