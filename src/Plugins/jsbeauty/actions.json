@@ -14,7 +14,7 @@
             "click_event": {
                 "type": "",
                 "signal": "",
-                "command": "node jsbeauty/index.js format_html",
+                "command": "node application.js jsbeauty format_html",
                 "available_methods": "selected_text,file_path",
                 "after_success_methods": "",
                 "after_failure_methods": ""

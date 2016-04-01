@@ -14,7 +14,11 @@ module.exports = function (info) {
         }  
     });
     
+    client['return_result'] = function (method, params) {
+            console.log('{ "method" : "' + method + '", "params" : ["' + params + '"]}');
+        }  
     
+    return client;
     
     var result;
     var error;
@@ -34,6 +38,10 @@ module.exports = function (info) {
         this.response = '';
         this.error = '';
         
+        this.return_result = function (method, params) {
+            console.log('{ "method" : "' + method + '", "params" : ["' + params + '"]}');
+        }  
+        
         this.request = function(method,params,callback){
             
             client.request(method,params, function(err, errors, res){
@@ -43,7 +51,7 @@ module.exports = function (info) {
                 }
                 //console.log(res);
                 
-                res = jsesc(res, {  'json': true  } );
+                res = jsesc(res, {  'quotes': 'double'  } );
                 
                 this.response = res;
                 

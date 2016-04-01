@@ -2,21 +2,35 @@ api = require('./src/Plugins/api');
 jsesc = require('jsesc');
 api = api();
 
-var learn = require('./src/Plugins/learn');
-learn.requestFlush(); 
+//Sample only
+//var learn = require('./src/Plugins/learn');
+//learn.requestFlush(); 
 
 
-funcstr = '';
+var funcstr;
 api_functions= {};
+var moduleName;
 
 var program = require('commander');
 
 program
     .version('0.0.1')
-    .arguments('<func> [data]')
-    .action(function(func, data) {
+    .usage(
+'\n\n' + 
+'___ ____ _ ____ ____ _ ______________\n'+
+'|_  ||_  _|  (_)|_  _|    |_  _|(_)  \n'+
+'  | |_/ /    __   \\ \\  /\\  / /  __   \n'+
+"  |  __'.   [  |   \\ \\/  \\/ /  [  |  \n"+
+' _| |  \\ \\_  | |    \\  /\\  /    | |  \n'+
+'|____||____|[___]    \\/  \\/    [___] \n'+
+'\n\n' +
+"<module> <func> {data}")
+
+    .arguments('<module> <func> {data}')
+    .action(function(module,func, data) {
+        moduleName = module;
         funcstr = func;
-        api_functions = JSON.parse(data);
+        api_functions = data;
     });
 
 program.parse(process.argv);
@@ -27,6 +41,6 @@ if (typeof funcstr === 'undefined') {
 }
 
 
-var module = require('./src/Plugins/'+'jsbeauty' )
+var module = require('./src/Plugins/'+ moduleName )
 
 module[funcstr]();
