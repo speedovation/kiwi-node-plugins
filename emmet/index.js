@@ -114,7 +114,7 @@ x.expand_wrap = function() {
     var input = dataValue.input_dialog;
     var selected_text = dataValue.selected_text;
       
-	logger.info("expand_wrap: " + dataValue.selected_text );
+	logger.debug("expand_wrap: " + dataValue.selected_text );
 	input = utils.escapeText(input);
 	
 	var v = parser.expand(input, {

@@ -16,16 +16,28 @@ var beautify_html = require('js-beautify').html;
 
 
 
-var funcstr = process.argv[2];
+/*var funcstr = process.argv[2];
 var jsonstr = process.argv[3]
-
-//jsonstr = JSON.stringify(jsonstr);
-
-//console.log(funcstr + "|" + jsonstr);
-
 var api_functions = JSON.parse([jsonstr]);
-//return;
+*/
 
+
+var program = require('commander');
+
+program
+  .version('0.0.1')
+  .arguments('<func> [data]')
+  .action(function (func, data) {
+     funcstr = func;
+     api_functions = JSON.parse(data);
+  });
+
+program.parse(process.argv);
+
+if (typeof funcstr === 'undefined') {
+   console.error('no command given!');
+   process.exit(1);
+}
 
 //console.log(api_functions.file_path)
 
@@ -63,6 +75,7 @@ x.format_html = function() {
 		
 		//res = escapeJSON(res);
 		
+	    //res = jsesc(res, {  'json': true  } );
 		res = res.replace(/"/g, "\\\"");
 		// Cover these also
 /*		\/
@@ -74,7 +87,6 @@ x.format_html = function() {
 \u*/ 
 		
 		
-		//res = jsesc(res, {  'json': true  } );
 		
 		//console.log(res);
 		
@@ -83,7 +95,7 @@ x.format_html = function() {
 
 		
     
-    		return return_result('replace_selected_text',[res]);
+    		return return_result('set_text',[res]);
         
     });
 	
