@@ -106,6 +106,28 @@ x.format_js = function() {
 
 }
 
+x.format_css = function() {
+
+
+    api.request('text', [], function(err, errors, res) {
+
+        if (err) {
+            this.error = errors;
+            console.log('Err:' + errors);
+            return;
+        }
+
+        var res = beautify_css(res);
+        res = jsesc(res, {
+            'quotes': 'double'
+        });
+
+        return return_result('set_text', [res]);
+
+    });
+
+}
+
 x.format_json = function() {
 
     api.request('text', [], function(err, errors, res) {

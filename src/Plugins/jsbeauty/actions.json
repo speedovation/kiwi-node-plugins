@@ -22,6 +22,22 @@
             "icons": {}
         },
         {
+            "name": "formatCss",
+            "title": "Format CSS",
+            "parentMenu": "menuCss",
+            "shortcutKeys": "Ctrl+Shift+k",
+            "click_event": {
+                "type": "",
+                "signal": "",
+                "command": "node jsbeauty/index.js format_css",
+                "available_methods": "selected_text,file_path",
+                "after_success_methods": "",
+                "after_failure_methods": ""
+            },
+            "command": " ",
+            "icons": {}
+        },
+        {
             "name": "formatJs",
             "title": "Format JavaScript",
             "parentMenu": "menuJsBeauty",
