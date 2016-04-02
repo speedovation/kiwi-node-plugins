@@ -1,105 +1,27 @@
-var api = require('./../api');
-api = api();
 var plugin = require('./plugin');
 var expand = require('./expand');
 expand = expand()
-var jsesc = require('jsesc');
 
-var winston = require('winston');
-winston.emitErrs = true;
-
-var logger = new winston.Logger({
-    transports: [
-        new winston.transports.File({
-            level: 'debug',
-            filename: './all-logs.log',
-            handleExceptions: true,
-            json: false,
-            maxsize: 5242880, //5MB
-            maxFiles: 5,
-            colorize: false
-        }),
-        new winston.transports.Console({
-            level: 'info',
-            handleExceptions: true,
-            json: false,
-            colorize: true
-        })
-    ],
-    exitOnError: false
-});
-
-module.exports = logger;
-module.exports.stream = {
-    write: function(message, encoding){
-        logger.info(message);
-    }
-};
-
-
-var x = { }; // better would be to have module create an object
-
-
-// print process.argv
-//process.argv.forEach(function (val, index, array) {
-  //console.log(index + ': ' + val);
-//});
-
-
-//console.log("function: " + funcstr);
-
-//var v = expand.expand('ul+',{});
-//console.log( "V: " + v );  div.class
-
-
-//jsonstr = jsonstr.replace(/\\/g, "");
-
-//logger.info("JSON: " + jsonstr );
-
-/*var funcstr = process.argv[2];
-var jsonstr = process.argv[3];
-var api_functions = JSON.parse([jsonstr]);
-logger.debug( api_functions.selected_text )
-*/
-
-var program = require('commander');
-
-program
-  .version('0.0.1')
-  .arguments('<func> [data]')
-  .action(function (func, data) {
-     funcValue = func;
-     dataValue = JSON.parse(data);
-  });
-
-program.parse(process.argv);
-
-if (typeof funcValue === 'undefined') {
-   console.error('no command given!');
-   process.exit(1);
-}
-
-//console.log('function:', funcValue);
-//console.log('data:', dataValue);
-//console.log('data file path:', dataValue.file_path);
+util = require("util");
 
 
 
 
-function return_result(method,params)
-{
-	console.log('{ "method" : "' + method + '", "params" : ["'+ params +'"]}')
-}
+var vemmet = { }; // better would be to have module create an object
+module['exports'] = vemmet;
 
 
-x.expand_tab = function() { 
+vemmet.expand_tab = function() { 
 
-    logger.debug("Expand tab: "+dataValue.file_path )
+    logger.debug("Expand tab: "+ CommandHandler.availableFunctions.selected_text )
     //console.info("Expand tab: "+api_functions.file_path )
+ var obj_str = util.inspect(CommandHandler.availableFunctions);
+console.log(obj_str);
     
-	var v = expand.expand(dataValue.selected_text, {});
-	v = v.replace(/"/g, "'");
-	return return_result('replace_selected_text',[v]);
+	var v = expand.expand(CommandHandler.availableFunctions.selected_text, {});
+	v = jsesc(v, {  'quotes': 'double'  } );
+    
+	return api.return_result('replace_selected_text',[v]);
 
 }
 
@@ -108,13 +30,13 @@ var parser = require('emmet/lib/parser/abbreviation');
 var action = require('emmet/lib/action/wrapWithAbbreviation');
 var utils  = require('emmet/lib/utils/common');
 
-x.expand_wrap = function() { 
+vemmet.expand_wrap = function() { 
     
     
-    var input = dataValue.input_dialog;
-    var selected_text = dataValue.selected_text;
+    var input = CommandHandler.availableFunctions.input_dialog;
+    var selected_text = CommandHandler.availableFunctions.selected_text;
       
-	logger.debug("expand_wrap: " + dataValue.selected_text );
+	logger.debug("expand_wrap: " + CommandHandler.availableFunctions.selected_text );
 	input = utils.escapeText(input);
 	
 	var v = parser.expand(input, {
@@ -124,10 +46,10 @@ x.expand_wrap = function() {
 		});
         
         
-	
-	v = v.replace(/"/g, "'");
+	v = jsesc(v, {  'quotes': 'double'  } );
+	//v = v.replace(/"/g, "'");
 		
-	return return_result('replace_selected_text',[v]);
+	return api.return_result('replace_selected_text',[v]);
 
    // console.log("Result: " + res + " | " + v);
             
@@ -135,11 +57,8 @@ x.expand_wrap = function() {
 
 }
 
-// div#id.class.another
 
-//x.expandWrap();
-
-x[funcValue]();
+//x[funcValue]();
 
 /* old style and still supported
  * 
@@ -200,5 +119,26 @@ x[funcValue]();
         });
     
     })
-    * 
-    */
+    
+    // print process.argv
+//process.argv.forEach(function (val, index, array) {
+  //console.log(index + ': ' + val);
+//});
+
+
+//console.log("function: " + funcstr);
+
+//var v = expand.expand('ul+',{});
+//console.log( "V: " + v );  div.class
+
+
+//jsonstr = jsonstr.replace(/\\/g, "");
+
+//logger.info("JSON: " + jsonstr );
+
+/ *var funcstr = process.argv[2];
+var jsonstr = process.argv[3];
+var api_functions = JSON.parse([jsonstr]);
+logger.debug( api_functions.selected_text )
+*/
+   

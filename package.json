@@ -20,7 +20,9 @@
     "uglifyjs" : "*"
 
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "pretty-error" : "*"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
