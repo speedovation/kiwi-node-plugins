@@ -9,4 +9,4 @@ CommandHandler = require('./src/Core/CommandHandler');
 var module = require('./src/Plugins/'+ moduleName )
 
 module[funcstr]();
-require('pretty-error').start();
+
