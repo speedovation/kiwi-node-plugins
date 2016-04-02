@@ -127,6 +127,3 @@ jsbeauty.format_json = function() {
     });*/
 
 }
-
-
-
