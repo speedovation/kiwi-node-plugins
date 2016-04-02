@@ -15,9 +15,11 @@
     "emmet": "*",
     "js-beautify" : "*",
     "less" : "*",
+    "jshint" : "*",
     "css": "*",
     "net": "*",
-    "uglifyjs" : "*"
+    "uglifyjs" : "*",
+    "underscore" : "*"
 
   },
   "devDependencies": {
