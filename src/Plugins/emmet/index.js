@@ -2,10 +2,6 @@ var plugin = require('./plugin');
 var expand = require('./expand');
 expand = expand()
 
-util = require("util");
-
-
-
 
 var vemmet = { }; // better would be to have module create an object
 module['exports'] = vemmet;
@@ -13,12 +9,11 @@ module['exports'] = vemmet;
 
 vemmet.expand_tab = function() { 
 
-    logger.debug("Expand tab: "+ CommandHandler.availableFunctions.selected_text )
-    //console.info("Expand tab: "+api_functions.file_path )
- var obj_str = util.inspect(CommandHandler.availableFunctions);
-console.log(obj_str);
+    logger.debug("Expand tab: "+ api_functions.selected_text )
+logger.debug(JSON.stringify(api_functions, null, 4));
+
     
-	var v = expand.expand(CommandHandler.availableFunctions.selected_text, {});
+	var v = expand.expand(api_functions.selected_text, {});
 	v = jsesc(v, {  'quotes': 'double'  } );
     
 	return api.return_result('replace_selected_text',[v]);
@@ -33,10 +28,10 @@ var utils  = require('emmet/lib/utils/common');
 vemmet.expand_wrap = function() { 
     
     
-    var input = CommandHandler.availableFunctions.input_dialog;
-    var selected_text = CommandHandler.availableFunctions.selected_text;
+    var input = api_functions.input_dialog;
+    var selected_text = api_functions.selected_text;
       
-	logger.debug("expand_wrap: " + CommandHandler.availableFunctions.selected_text );
+	logger.debug("expand_wrap: " + api_functions.selected_text );
 	input = utils.escapeText(input);
 	
 	var v = parser.expand(input, {

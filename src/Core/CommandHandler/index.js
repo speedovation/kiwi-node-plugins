@@ -3,9 +3,7 @@
 //learn.requestFlush(); 
 
 
-funcstr = '';
-api_functions= {};
-moduleName = '';
+
 
 var program = require('commander');
 
@@ -22,11 +20,11 @@ program
 '\n\n' +
 "<module> <func> {data}")
 
-    .arguments('<module> <func> {data}')
+    .arguments('<module> <func> <data>')
     .action(function(module,func, data) {
         moduleName = module;
         funcstr = func;
-        api_functions = data;
+        api_functions = JSON.parse(data);
     });
 
 program.parse(process.argv);
