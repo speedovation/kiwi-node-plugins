@@ -14,7 +14,7 @@
             "click_event": {
                 "type": "",
                 "signal": "",
-                "command": "node less/index.js compile",
+                "command": "node application.js less compile",
                 "available_methods": "selected_text,file_path",
                 "after_success_methods": "",
                 "after_failure_methods": ""

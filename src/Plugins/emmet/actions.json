@@ -14,7 +14,7 @@
             "click_event": {
                 "type": "",
                 "signal": "",
-                "command": "node emmet/index.js expand_wrap",
+                "command": "node application.js emmet expand_wrap",
                 "available_methods": "selected_text,input_dialog",
                 "after_success_methods": "",
                 "after_failure_methods": ""
@@ -29,7 +29,7 @@
             "click_event": {
                 "type": "",
                 "signal": "",
-                "command": "node emmet/index.js expand_tab",
+                "command": "node application.js emmet expand_tab",
                 "available_methods": "selected_text,file_path",
                 "after_success_methods": "",
                 "after_failure_methods": ""

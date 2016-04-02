@@ -14,7 +14,7 @@
             "click_event": {
                 "type": "",
                 "signal": "",
-                "command": "node parser/index.js parse_js",
+                "command": "node application.js parser parse_js",
                 "available_methods": "selected_text:file_path",
                 "after_success_methods": "",
                 "after_failure_methods": ""
