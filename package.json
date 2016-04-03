@@ -16,6 +16,7 @@
     "js-beautify" : "*",
     "less" : "*",
     "jshint" : "*",
+    "csslint" : "*",
     "css": "*",
     "net": "*",
     "uglifyjs" : "*",

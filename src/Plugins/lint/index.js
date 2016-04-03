@@ -73,3 +73,64 @@ lint.lint_js = function() {
 
 
 };
+
+
+var cssLint = require('csslint').CSSLint;
+
+lint.lint_css = function() {
+
+    //TODO:  Test selected_text  	//api_functions.selected_text
+
+    //if selected_text not found call a json rpc and get full text and
+    api.request('text', [], function(err, errors, res) {
+
+
+
+        if (err) {
+            this.error = errors;
+            console.log('Err:' + errors);
+            return;
+        }
+
+
+
+        var result = cssLint.verify(res);
+        
+        
+        var modifiedErrors = {};
+        
+        
+        if (result.messages.length === 0) {
+            //Success
+        } else {
+            //Errors or warnings
+            
+            var i = 0;
+            for (i=0; i<result.messages.length; i++) 
+            {
+                var message = result.messages[i];
+                logger.debug("%s (line %d, col %d): %s", message.type, message.line, message.col, message.message);
+                
+                modifiedErrors[message.line - 1 ] =  message.type.toUpperCase() +" : "+ message.message  ;
+            }
+        }
+
+        //console.log(jshint.JSHINT.data());
+        
+        modifiedErrors = JSON.stringify(modifiedErrors);
+
+        //m = '{"2" : "some error msg"}';
+        //modifiedErrors = jsesc(modifiedErrors, {
+        //    'quotes': 'double'
+        //});
+        
+        
+        //logger.debug(api.return_result('set_markers', [m]));
+
+        
+        return api.return_result('set_markers', [modifiedErrors]);
+
+    });
+
+
+};
