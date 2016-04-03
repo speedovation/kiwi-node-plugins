@@ -35,27 +35,52 @@
                 "after_failure_methods": ""
             },
             "icons": {}
+        },
+        {
+            "name": "lintJson",
+            "title": "Lint JSON",
+            "parentMenu": "menuValidators",
+            "shortcutKeys": "Ctrl+Shift+h",
+            "click_event": {
+                "type": "",
+                "signal": "",
+                "command": "node application.js lint lint_json",
+                "available_methods": "selected_text,file_path",
+                "after_success_methods": "",
+                "after_failure_methods": ""
+            },
+            "icons": {}
         }
         
     ],
-
-     "events": {
-        "register_event_type": [{
-            "type": "JavaScript File",
-            "signal": "on_text_changed",
-            "command": "node application.js lint lint_js",
-            "available_methods": "selected_text,file_path",
-            "after_success_methods": "",
-            "after_failure_methods": ""
-        },
-         {
-            "type": "Css File",
-            "signal": "on_text_changed",
-            "command": "node application.js lint lint_css",
-            "available_methods": "selected_text,file_path",
-            "after_success_methods": "",
-            "after_failure_methods": ""
-        }]
+    "events": {
+        "register_event_type": [
+            {
+                "type": "Javascript File",
+                "signal": "on_text_changed",
+                "command": "node application.js lint lint_js",
+                "available_methods": "selected_text,file_path",
+                "after_success_methods": "",
+                "after_failure_methods": ""
+            },
+            {
+                "type": "Css File",
+                "signal": "on_text_changed",
+                "command": "node application.js lint lint_css",
+                "available_methods": "selected_text,file_path",
+                "after_success_methods": "",
+                "after_failure_methods": ""
+            
+            },
+            {
+                "type": "Json File",
+                "signal": "on_text_changed",
+                "command": "node application.js lint lint_json",
+                "available_methods": "selected_text,file_path",
+                "after_success_methods": "",
+                "after_failure_methods": ""
+            }
+        ]
     },
     "files": {
         "node": [

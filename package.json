@@ -17,6 +17,7 @@
     "less" : "*",
     "jshint" : "*",
     "csslint" : "*",
+    "jsonlint" : "*",
     "css": "*",
     "net": "*",
     "uglifyjs" : "*",

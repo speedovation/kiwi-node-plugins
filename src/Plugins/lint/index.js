@@ -134,3 +134,62 @@ lint.lint_css = function() {
 
 
 };
+
+
+var jsonlint = require("jsonlint");
+//var util = require('util');
+
+lint.lint_json = function() {
+
+    //TODO:  Test selected_text  	//api_functions.selected_text
+
+    //if selected_text not found call a json rpc and get full text and
+    api.request('text', [], function(err, errors, res) {
+
+
+
+        if (err) {
+            this.error = errors;
+            console.log('Err:' + errors);
+            return;
+        }
+		
+		var modifiedErrors = {};
+
+		try{
+		
+        		jsonlint.parse(res);
+		
+		}
+		catch(err) {
+   			//console.log(err.message, err.name);
+			
+			 //'Parse error on line 1:\n/* jshint node: true\n^\nExpecting \'STRING\', \'NUMBER\', \'NULL\', \'TRUE\', \'FALSE\', \'{\', \'[\', got \'undefined\'' }
+
+			var line = err.message.match(/(line\s*[0-9]+)/g)[0].split(" ")[1];
+			
+			modifiedErrors[line - 1 ] =  err.message.replace(/(\r\n|\n|\r)/gm,"");
+
+			//console.log(util.inspect(response, true, null));
+		}
+        
+        
+        
+        //modifiedErrors = JSON.stringify(modifiedErrors);
+
+        //m = '{"2" : "some error msg"}';
+        modifiedErrors = jsesc(modifiedErrors, {
+            'quotes': 'double',
+            'compact': true
+        });
+        
+        
+        //logger.debug(modifiedErrors);
+
+        
+        return api.return_result('set_markers', [modifiedErrors]);
+
+    });
+
+
+};

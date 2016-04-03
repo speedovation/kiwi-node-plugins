@@ -1,3 +1,4 @@
+/* jshint node: true,globals: true */
 //All variables defined here are global and can be accessed from Plugins source files
 api = require('./src/Core/Api');
 jsesc = require('jsesc');
@@ -15,7 +16,7 @@ moduleName = '';
 require('./src/Core/CommandHandler');
 
 //Load module
-var module = require('./src/Plugins/'+ moduleName )
+var module = require('./src/Plugins/'+ moduleName );
 
 //Run function of above module
 module[funcstr]();
