@@ -51,6 +51,22 @@
             },
             "icons": {}
         }
+        ,
+        {
+            "name": "lintXml",
+            "title": "Lint XML",
+            "parentMenu": "menuValidators",
+            "shortcutKeys": "Ctrl+Shift+h",
+            "click_event": {
+                "type": "",
+                "signal": "",
+                "command": "node application.js lint lint_xml",
+                "available_methods": "selected_text,file_path",
+                "after_success_methods": "",
+                "after_failure_methods": ""
+            },
+            "icons": {}
+        }
         
     ],
     "events": {
@@ -76,6 +92,15 @@
                 "type": "Json File",
                 "signal": "on_text_changed",
                 "command": "node application.js lint lint_json",
+                "available_methods": "selected_text,file_path",
+                "after_success_methods": "",
+                "after_failure_methods": ""
+            
+            },
+            {
+                "type": "Xml File",
+                "signal": "on_text_changed",
+                "command": "node application.js lint lint_xml",
                 "available_methods": "selected_text,file_path",
                 "after_success_methods": "",
                 "after_failure_methods": ""

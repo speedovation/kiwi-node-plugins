@@ -25,6 +25,7 @@
 
   },
   "devDependencies": {
+    "pretty-error" : "*"
     
   },
   "scripts": {

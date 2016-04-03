@@ -193,3 +193,75 @@ lint.lint_json = function() {
 
 
 };
+
+
+require('pretty-error').start();
+var libxmljs = require("libxmljs");
+
+lint.lint_xml = function() {
+
+    //TODO:  Test selected_text  	//api_functions.selected_text
+
+    //if selected_text not found call a json rpc and get full text and
+    api.request('text', [], function(err, errors, res) {
+
+
+
+        if (err) {
+            this.error = errors;
+            console.log('Err:' + errors);
+            return;
+        }
+
+
+        
+        var modifiedErrors = {};
+        var xmlDoc ;
+
+        try{
+            
+            xmlDoc = libxmljs.parseXmlString(res);
+
+        /*if (xmlDoc.validationErrors.length === 0) {
+            //Success
+        } else { }*/
+        
+        
+        }
+        catch(err) 
+        {
+        
+            //Errors or warnings
+            
+            var i = 0;
+            for (i=0; i<xmlDoc.validationErrors.length; i++) 
+            {
+                var error = xmlDoc.validationErrors[i];
+                //logger.debug("%s (line %d, col %d): %s", error.type, error.line, error.col, error.message);
+                
+                //modifiedErrors[message.line - 1 ] =  message.type.toUpperCase() +" : "+ message.message  ;
+                
+                
+                console.log(error);
+            }
+        }
+
+        //console.log(jshint.JSHINT.data());
+        
+        modifiedErrors = JSON.stringify(modifiedErrors);
+
+        //m = '{"2" : "some error msg"}';
+        //modifiedErrors = jsesc(modifiedErrors, {
+        //    'quotes': 'double'
+        //});
+        
+        
+        //logger.debug(api.return_result('set_markers', [m]));
+
+        
+        return api.return_result('set_markers', [modifiedErrors]);
+
+    });
+
+
+};
