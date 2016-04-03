@@ -14,6 +14,7 @@ lint.lint_js = function() {
     api.request('text', [], function(err, errors, res) {
 
 
+
         if (err) {
             this.error = errors;
             console.log('Err:' + errors);
@@ -28,7 +29,9 @@ lint.lint_js = function() {
             //,"node": true
         };
         var predef = {
-            foo: false
+            api: false,
+            logger : false,
+            jsesc : false
         };
 
         //JSHINT(res, options, predef);
@@ -55,9 +58,9 @@ lint.lint_js = function() {
         modifiedErrors = JSON.stringify(modifiedErrors);
 
         //m = '{"2" : "some error msg"}';
-        modifiedErrors = jsesc(modifiedErrors, {
-            'quotes': 'double'
-        });
+        //modifiedErrors = jsesc(modifiedErrors, {
+        //    'quotes': 'double'
+        //});
         
         
         
@@ -69,4 +72,4 @@ lint.lint_js = function() {
     });
 
 
-}
+};

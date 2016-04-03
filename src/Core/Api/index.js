@@ -1,3 +1,4 @@
+/* jshint node: true,globals: true */
 var jsesc = require('jsesc');
 
 module.exports = function (info) {
@@ -14,14 +15,19 @@ module.exports = function (info) {
         }  
     });
     
-    client['return_result'] = function (method, params) {
-            console.log('{ "method" : "' + method + '", "params" : ["' + params + '"]}');
-        }  
+    client.return_result = function (method, params) {
+            console.log('{ "method" : "' + method + '", "params" : [' + params + ']}');
+        };  
+        
+     client.to_string = function(v)
+     {
+        return '"'+v+'"';
+     };
     
     return client;
     
-    var result;
-    var error;
+    //var result;
+    //var error;
     
     // invoke "add"
 /*    client.request('hello', [], function(err, error, response) {
@@ -40,7 +46,7 @@ module.exports = function (info) {
         
         this.return_result = function (method, params) {
             console.log('{ "method" : "' + method + '", "params" : ["' + params + '"]}');
-        }  
+        };  
         
         this.request = function(method,params,callback){
             
@@ -56,14 +62,14 @@ module.exports = function (info) {
                 this.response = res;
                 
                 callback(this.response);
-            })
-        }
+            });
+        };
         
         
 
             
         
-    }
+    };
     return client;
     return new apiClass();
 

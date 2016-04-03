@@ -1,15 +1,16 @@
+/* jshint node: true,globals: true */
 var plugin = require('./plugin');
 var expand = require('./expand');
-expand = expand()
+expand = expand();
 
 
 var vemmet = {}; // better would be to have module create an object
-module['exports'] = vemmet;
+module.exports = vemmet;
 
 
 vemmet.expand_tab = function() {
 
-    logger.debug("Expand tab: " + api_functions.selected_text)
+    logger.debug("Expand tab: " + api_functions.selected_text);
     logger.debug(JSON.stringify(api_functions, null, 4));
 
 
@@ -18,9 +19,9 @@ vemmet.expand_tab = function() {
         'quotes': 'double'
     });
 
-    return api.return_result('replace_selected_text', [v]);
+    return api.return_result('replace_selected_text', api.to_string(v)   );
 
-}
+};
 
 
 var parser = require('emmet/lib/parser/abbreviation');
@@ -48,13 +49,13 @@ vemmet.expand_wrap = function() {
     });
     //v = v.replace(/"/g, "'");
 
-    return api.return_result('replace_selected_text', [v]);
+    return api.return_result('replace_selected_text', api.to_string(v));
 
     // console.log("Result: " + res + " | " + v);
 
 
 
-}
+};
 
 
 //x[funcValue]();

@@ -1,3 +1,5 @@
+/* jshint node: true,globals: true */
+
 var beautify_js = require('js-beautify');
 var beautify_css = require('js-beautify').css;
 var beautify_html = require('js-beautify').html;
@@ -15,7 +17,7 @@ var api_functions = JSON.parse([jsonstr]);
 
 
 var jsbeauty = {}; // better would be to have module create an object
-module['exports'] = jsbeauty;
+module.exports = jsbeauty;
 
 jsbeauty.format_html = function() {
 
@@ -32,7 +34,7 @@ jsbeauty.format_html = function() {
 
         //console.log("Result: " + res );
         //"<html><head><meta charset='UTF-8' /><title>Document</title></head><body></body></html>"
-        var res = beautify_html(res);
+        res = beautify_html(res);
 
 
         res = jsesc(res, {
@@ -46,12 +48,12 @@ jsbeauty.format_html = function() {
         /*	\/\b   \f    \n    \r   \t    \u */
 
 
-        return api.return_result('set_text', [res]);
+        return api.return_result('set_text', api.to_string(res));
 
     });
 
 
-}
+};
 
 jsbeauty.format_js = function() {
 
@@ -64,16 +66,16 @@ jsbeauty.format_js = function() {
             return;
         }
 
-        var res = beautify_js(res);
+        res = beautify_js(res);
         res = jsesc(res, {
             'quotes': 'double'
         });
 
-        return api.return_result('set_text', [res]);
+        return api.return_result('set_text', api.to_string(res));
 
     });
 
-}
+};
 
 jsbeauty.format_css = function() {
 
@@ -86,16 +88,16 @@ jsbeauty.format_css = function() {
             return;
         }
 
-        var res = beautify_css(res);
+        res = beautify_css(res);
         res = jsesc(res, {
             'quotes': 'double'
         });
 
-        return api.return_result('set_text', [res]);
+        return api.return_result('set_text', api.to_string(res));
 
     });
 
-}
+};
 
 jsbeauty.format_json = function() {
 
@@ -112,7 +114,7 @@ jsbeauty.format_json = function() {
             'quotes': 'double'
         });
 
-        return api.return_result('set_text', [res]);
+        return api.return_result('set_text', api.to_string(res));
 
     });
 
@@ -126,4 +128,4 @@ jsbeauty.format_json = function() {
 		console.log("Out:" + stdout);
     });*/
 
-}
+};
