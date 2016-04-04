@@ -1,9 +1,5 @@
 h1. Kineticwing IDE Plugins using Node Js
 
-^Doc Version : 1.0^
-^IDE Version : 2.0.6^
-
-
 h2. Introduction
 
 Kiwi-node-plugins allows us to write plugins in Node Js for KineticWing IDE. One can use any language to write plugins for KineticWing IDE using the flavours API. Here we are using Node Js for that purpose.

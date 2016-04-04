@@ -4,7 +4,7 @@
     "description": "Validator For Web Developers",
     "version": "2.0.0",
     "parentMenu": "menuValidators",
-    "menuName": "Lintors",
+    "menuName": "Linters",
     "actions": [
         {
             "name": "lintJs",
