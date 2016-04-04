@@ -1,3 +1,4 @@
+/* jshint node: true,globals: true */
 var assert = require('assert');
 //var editor = require('./stubs/editor');
 var parser = require('emmet/lib/parser/abbreviation');
@@ -44,7 +45,7 @@ var expandClass = function() {
                 return data.placeholder || '';
             }
         });
-    }
+    };
     
     this.before = function() {
         utils.setCaretPlaceholder('|');
@@ -52,15 +53,15 @@ var expandClass = function() {
     };
     
     this.after =function() {
-        utils.setCaretPlaceholder(caret);
+        utils.setCaretPlaceholder(this.caret);
         resources.setVocabulary({}, 'user');
     };
     
-}
+};
 
 
 module.exports = function () {
     
     return new expandClass();
     
-}
+};
