@@ -11,7 +11,7 @@ We're using a "json-rpc":http://json-rpc.org/ based protocol for API and IDE com
 
 So this is JSON-RPC based plugin system.
 
-Each plugin loaded from Actions.Json. It creates menus and actions inside editor and register callbacks. For more check "Plugins Actions.json sample and explanation":https://github.com/speedovation/kiwi-node-plugins/blob/master/doc/plugins.textile
+Each plugin loaded from Actions.Json. It creates menus and actions inside editor and register callbacks. For more check "Plugins Actions.json sample and explanation":https://github.com/speedovation/kiwi/wiki/Flavours
 
 IDE will load all plugins here. Plugin manager is in progress. 
 
