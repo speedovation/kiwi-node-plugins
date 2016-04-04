@@ -158,7 +158,7 @@ lint.lint_json = function() {
 
 		try{
 		
-        		jsonlint.parse(res);
+        	jsonlint.parse(res);
 		
 		}
 		catch(err) {
@@ -196,7 +196,7 @@ lint.lint_json = function() {
 
 
 require('pretty-error').start();
-var libxmljs = require("libxmljs");
+
 
 lint.lint_xml = function() {
 
@@ -220,7 +220,7 @@ lint.lint_xml = function() {
 
         try{
             
-            xmlDoc = libxmljs.parseXmlString(res);
+            //xmlDoc = libxmljs.parseXmlString(res);
 
         /*if (xmlDoc.validationErrors.length === 0) {
             //Success
@@ -233,7 +233,7 @@ lint.lint_xml = function() {
         
             //Errors or warnings
             
-            var i = 0;
+           /* var i = 0;
             for (i=0; i<xmlDoc.validationErrors.length; i++) 
             {
                 var error = xmlDoc.validationErrors[i];
@@ -243,7 +243,7 @@ lint.lint_xml = function() {
                 
                 
                 console.log(error);
-            }
+            }*/
         }
 
         //console.log(jshint.JSHINT.data());
