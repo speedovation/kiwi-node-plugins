@@ -15,6 +15,7 @@
     "emmet": "*",
     "js-beautify" : "*",
     "less" : "*",
+    "htmlhint" : "*",
     "jshint" : "*",
     "csslint" : "*",
     "jsonlint" : "*",
