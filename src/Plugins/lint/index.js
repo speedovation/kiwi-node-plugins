@@ -286,7 +286,6 @@ lint.lint_html = function() {
         var messages;
 
 
-
         //xmlDoc = libxmljs.parseXmlString(res);
 
         var options = {

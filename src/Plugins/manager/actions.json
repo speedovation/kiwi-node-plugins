@@ -1,0 +1,35 @@
+{
+    "name": "Less",
+    "title": "Less Actions",
+    "description": "Less Actions For Web Developers",
+    "version": "2.0.0",
+    "parentMenu": "menuLess",
+    "menuName": "Less Actions",
+    "actions": [
+        {
+            "name": "compileLESS",
+            "title": "Compile LESS",
+            "parentMenu": "menuJs",
+            "shortcutKeys": "Ctrl+Shift+h",
+            "click_event": {
+                "type": "",
+                "signal": "",
+                "command": "node application.js less compile",
+                "available_methods": "selected_text,file_path",
+                "after_success_methods": "",
+                "after_failure_methods": ""
+            },
+            "icons": {}
+        }
+        
+    ],
+    "files": {
+        "node": [
+            "index"
+        ]
+    },
+    "icons": {
+        "128": "jsonlint-logo.png"
+    },
+    "license": "Apache"
+}
