@@ -1,0 +1,24 @@
+{
+    "menu": {
+        "parent_label": "Flavours",
+        "label": "Syntax Checkers"
+    },
+    "submenu": [
+        {
+            "label": "JavaScript Syntax Checker",
+            "command_name": "lintJs"
+        },
+        {
+            "label": "Css Syntax Checker",
+            "command_name": "lintCss"
+        },
+        {
+            "label": "Json Syntax Checker",
+            "command_name": "lintJson"
+        },
+        {
+            "label": "Html Syntax Checker",
+            "command_name": "lintHtml"
+        }
+    ]
+}
