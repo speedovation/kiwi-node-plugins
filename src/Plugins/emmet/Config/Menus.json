@@ -1,0 +1,16 @@
+{
+    "menu": {
+        "parent_label": "Flavours",
+        "label": "Emmet"
+    },
+    "submenu": [
+        {
+            "label": "Wrap With Abbr",
+            "command_name": "wrapWithAbbr"
+        },
+        {
+            "label": "Expand Abbr",
+            "command_name": "expandAbbr"
+        }
+    ]
+}
