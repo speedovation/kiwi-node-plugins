@@ -1,0 +1,11 @@
+{
+    "menu": {
+        "parent_label": "Flavours",
+        "label": "Open FTP Manager"
+    },
+    "submenu": [
+        {
+            "command_name": "openFtp"
+        }
+    ]
+}

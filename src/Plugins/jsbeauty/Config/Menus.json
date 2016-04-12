@@ -1,0 +1,20 @@
+{
+    "menu": {
+        "parent_label": "Flavours",
+        "label": "Formatters"
+    },
+    "submenu": [
+        {
+            "command_name": "formatHtml"
+        },
+        {
+            "command_name": "formatCss"
+        },
+        {
+            "command_name": "formatJs"
+        },
+        {
+            "command_name": "formatJson"        
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "menu": {
+        "parent_label": "Flavours",
+        "label": "Plugin Manager"
+    },
+    "submenu": [
+        {
+            "command_name": "updateAll"
+        }
+    ]
+}

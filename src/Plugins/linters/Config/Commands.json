@@ -8,7 +8,7 @@
             "keymap": "Ctrl+Shift+h",
             
             "trigger_event": {
-                "fullcommand": "node application.js lint lint_js",
+                "fullcommand": "node application.js linters lint_js",
                 "command": [],
                 "available_api_methods": [
                     "selected_text",
@@ -30,7 +30,7 @@
             "keymap": "Ctrl+Shift+h",
             
             "trigger_event": {
-                "fullcommand": "node application.js lint lint_css",
+                "fullcommand": "node application.js linters lint_css",
                 "command": [],
                 "available_api_methods": [
                     "selected_text",
@@ -52,7 +52,7 @@
             "keymap": "Ctrl+Shift+h",
             
             "trigger_event": {
-                "fullcommand": "node application.js lint lint_html",
+                "fullcommand": "node application.js linters lint_html",
                 "command": [],
                 "available_api_methods": [
                     "selected_text",
@@ -74,7 +74,7 @@
             "keymap": "Ctrl+Shift+h",
             
             "trigger_event": {
-                "fullcommand": "node application.js lint lint_json",
+                "fullcommand": "node application.js linters lint_json",
                 "command": [],
                 "available_api_methods": [
                     "selected_text",

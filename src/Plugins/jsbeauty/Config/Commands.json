@@ -1,0 +1,77 @@
+{
+    "commands": [
+        
+
+        {
+            "name": "formatHtml",
+            "label": "Format html",
+            "keymap": "Ctrl+Shift+j",
+            "trigger_event": {
+                "command" : "",
+                "fullcommand": "node application.js jsbeauty format_html",
+                "available_api_methods": [
+                    "selected_text",
+                    "file_path"
+                ],
+                "after_success_run_commands": "",
+                "after_success_run_commands": ""
+            },
+            "icons": {}
+        },
+        
+        
+        {
+            "name": "formatCss",
+            "label": "Format CSS",
+            "keymap": "Ctrl+Shift+k",
+            "trigger_event": {
+                "command" : "",
+                "fullcommand": "node application.js jsbeauty format_css",
+                "available_api_methods": [
+                    "selected_text",
+                    "file_path"
+                ],
+                "after_success_run_commands": "",
+                "after_success_run_commands": ""
+            },
+            "command": " ",
+            "icons": {}
+        },
+        {
+            "name": "formatJs",
+            "label": "Format JavaScript",
+            "keymap": "Ctrl+Shift+k",
+            "trigger_event": {
+                "command": "",
+                "fullcommand": "node application.js jsbeauty format_js",
+                "available_api_methods": [
+                    "selected_text",
+                    "file_path"
+                ],
+                "after_success_run_commands": "",
+                "after_success_run_commands": ""
+            },
+            "command": " ",
+            "icons": {}
+        },
+        {
+            "name": "formatJson",
+            "label": "Format Json",
+            "keymap": "",
+            "trigger_event": {
+                "command": "",
+                "fullcommand": "node application.js jsbeauty format_json",
+                "available_api_methods": [
+                    "selected_text",
+                    "file_path"
+                ],
+                "after_success_run_commands": "",
+                "after_success_run_commands": ""
+            },
+            "icons": {}
+        }
+       
+        
+
+    ]
+}
