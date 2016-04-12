@@ -4,7 +4,7 @@ api = require('./Core/Api');
 jsesc = require('jsesc');
 logger = require('./Core/Logger');
 api = api();
-
+require('pretty-error').start();
 //Store Function Name
 funcstr = '';
 //Available function data

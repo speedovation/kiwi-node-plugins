@@ -14,7 +14,7 @@
             "command_name": "lintJson"
         },
         {
-            "command_name": "lintHtml"
+            "command_name": "lintHtml"        
         }
     ]
 }
