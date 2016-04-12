@@ -4,6 +4,7 @@
 
         {
             "name": "lintJs",
+            "label": "JavaScript Syntax Checker",
             "keymap": "Ctrl+Shift+h",
             
             "trigger_event": {
@@ -25,6 +26,7 @@
 
          {
             "name": "lintCss",
+             "label": "Css Syntax Checker",
             "keymap": "Ctrl+Shift+h",
             
             "trigger_event": {
@@ -46,6 +48,7 @@
 
          {
             "name": "lintHtml",
+            "label": "Html Syntax Checker",
             "keymap": "Ctrl+Shift+h",
             
             "trigger_event": {
@@ -67,6 +70,7 @@
 
          {
             "name": "lintJson",
+            "label": "Json Syntax Checker",
             "keymap": "Ctrl+Shift+h",
             
             "trigger_event": {
