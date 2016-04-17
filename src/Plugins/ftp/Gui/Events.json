@@ -1,0 +1,10 @@
+{
+   "_comment": " command name and GUI elements ",
+    "gui": [
+         { 
+            "element_name": "btnConnect",
+            "command_name" : "btnConnect_click",
+            "event" : "click" 
+        }
+    ]
+}
