@@ -1,0 +1,10 @@
+{
+	"gui" : {
+
+		"_comment" : " command name and GUI elements ",
+		"on_click_btn" : "commandname"
+
+	}
+
+
+}
