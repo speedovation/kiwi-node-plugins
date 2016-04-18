@@ -16,7 +16,7 @@ ftp.test = function() {
   
 
 
-    api.request('get_data',['ftp','hostname'], function(err, errors, res){
+    api.request('get_data',['ftp',['hostname','username'] ], function(err, errors, res){
     
         if(err)
         {
@@ -26,7 +26,29 @@ ftp.test = function() {
         
         
     
-        console.log("Result: " + res );
+        console.log("Result: " + res + typeof(res) );
+        console.log(JSON.stringify(res) ) ;
+        var t = JSON.parse(res) ;
+        console.log(t.hostname + " | " + t.username);
+       
+        
+
+    });
+    
+    api.request('set_data',['ftp','username', 'Archana is crazy' ], function(err, errors, res){
+    
+        if(err)
+        {
+            this.error = errors;
+            console.log('Err:' + errors); 
+        }
+        
+        
+    
+        console.log("Result: " + res + typeof(res) );
+        console.log(JSON.stringify(res) ) ;
+        var t = JSON.parse(res) ;
+        console.log(t.hostname + " | " + t.username);
        
         
 
