@@ -1,71 +1,74 @@
-var api = require('./../api');
-var jsesc = require('jsesc');
+/* jshint node: true,globals: true */
+var JSFtp = require("jsftp");
 
-api = api();
+var jftp = new JSFtp({
+  host: "ftp.techus24x7.com",
+  port: 21, // defaults to 21
+  user: "mayon_test@techus24x7.com", // defaults to "anonymous"
+  pass: "Yash121#" // defaults to "@anonymous"
+});
 
-
-
-var program = require('commander');
-
-program
-    .version('0.0.1')
-    .arguments('<func> [data]')
-    .action(function(func, data) {
-        funcstr = func;
-        api_functions = JSON.parse(data);
-    });
-
-program.parse(process.argv);
-
-if (typeof funcstr === 'undefined') {
-    console.error('no command given!');
-    process.exit(1);
-}
+var ftp = {}; // better would be to have module create an object
+module.exports = ftp;
 
 
-var x = {}; // better would be to have module create an object
-
-function return_result(method, params) {
-    console.log('{ "method" : "' + method + '", "params" : ["' + params + '"]}')
-}
+ftp.test = function() {
+  
 
 
-x.format_html = function() {
-
-    //TODO:  Test selected_text  	//api_functions.selected_text
-
-    //if selected_text not found call a json rpc and get full text and
-    api.request('text', [], function(err, errors, res) {
-
-        if (err) {
+    api.request('get_data',['ftp','hostname'], function(err, errors, res){
+    
+        if(err)
+        {
             this.error = errors;
-            console.log('Err:' + errors);
-            return;
+            console.log('Err:' + errors); 
         }
-
-        //console.log("Result: " + res );
-        //"<html><head><meta charset='UTF-8' /><title>Document</title></head><body></body></html>"
-        var res = beautify_html(res);
-
-
-        res = jsesc(res, {
-            'quotes': 'double'
-        });
-
-        //My hack which no longer required as jsesc doing this.
-        //res = res.replace(/"/g, "\\\"");
-
-        // jsesc convers below. Do research more. Look these also
-        /*	\/\b   \f    \n    \r   \t    \u */
-
-
-        return return_result('set_text', [res]);
+        
+        
+    
+        console.log("Result: " + res );
+       
+        
 
     });
 
 
-}
+  jftp.put('/var/www/html/index.html', 'index.html', function(hadError) {
+    if (!hadError)
+     console.log("Uploading done");
+  });
+  
+  //_this = this;
+  
+  jftp.ls(".", function(err, res) {
+    res.forEach(function(file) {
+      console.log(file);
+    });
+    
+    ftp.quit();
+    
+  });
+
+ };  
+ 
+  ftp.quit = function()  {  
+    
+    jftp.raw.quit(function(err, data) {
+      if (err) return console.error(err);
+  
+      console.log("Bye!");
+  });
+
+};
+  /*
+  ftp.list(remoteCWD, function(err, res) {
+    console.log(res);
+    // Prints something like
+    // -rw-r--r--   1 sergi    staff           4 Jun 03 09:32 testfile1.txt
+    // -rw-r--r--   1 sergi    staff           4 Jun 03 09:31 testfile2.txt
+    // -rw-r--r--   1 sergi    staff           0 May 29 13:05 testfile3.txt
+    // ...
+  });
+  */
 
 
-
-x[funcstr]();

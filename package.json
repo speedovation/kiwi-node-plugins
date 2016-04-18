@@ -22,7 +22,8 @@
     "css": "*",
     "net": "*",
     "uglifyjs" : "*",
-    "underscore" : "*"
+    "underscore" : "*",
+    "jsftp" : "*"
 
   },
   "devDependencies": {
