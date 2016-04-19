@@ -7,8 +7,8 @@
             "keymap": "Ctrl+Shift+h",
             
             "trigger_event": {
-                "command": "",
-                "fullcommand": "node application.js ftp open_ftp",
+                "command": ["GUI", "ftp"],
+                "fullcommand": "",
                 "command": [],
                 "available_api_methods": [
                     "selected_text",
