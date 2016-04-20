@@ -15,8 +15,28 @@ module.exports = ftp;
 ftp.test = function() {
   
 
-
-    api.request('get_data',['ftp',['hostname','username'] ], function(err, errors, res){
+api.request('set_values',
+  //outer one required for any/all request 
+  [ 
+    //this where we are creating list object to send function
+    [ 
+      //Normal set_value call wrapped in list
+      //First = module name
+      //Second = Element(GUI) name
+      //Third = value
+      // Value may be string or complex like list,object etc
+      ['ftp','listServerFiles', ['Archana VALUES crazy','Mayon'] ],
+      ['ftp','username', 'Archana is VALUES0' ]
+    ]
+  ], 
+    
+    function(err, errors, res){
+    console.log(res);
+    
+    });
+    
+ 
+    api.request('get_values',['ftp',['hostname','username'] ], function(err, errors, res){
     
         if(err)
         {
@@ -34,28 +54,8 @@ ftp.test = function() {
         
 
     });
-    
-    api.request('set_data',['ftp','username', 'Archana is crazy' ], function(err, errors, res){
-    
-        if(err)
-        {
-            this.error = errors;
-            console.log('Err:' + errors); 
-        }
-        
-        
-    
-        console.log("Result: " + res + typeof(res) );
-        console.log(JSON.stringify(res) ) ;
-        var t = JSON.parse(res) ;
-        console.log(t.hostname + " | " + t.username);
-       
-        
-
-    });
-    
-    
-      api.request('set_data',['ftp','listServerFiles', ['Archana is crazy','Mayon'] ], function(err, errors, res){
+   
+    api.request('set_value',['ftp','username', 'Archana is crazy' ], function(err, errors, res){
     
         if(err)
         {
@@ -73,6 +73,29 @@ ftp.test = function() {
         
 
     });
+    
+    
+      api.request('set_value',['ftp','listServerFiles', ['Archana is crazy','Mayon'] ], function(err, errors, res){
+    
+        if(err)
+        {
+            this.error = errors;
+            console.log('Err:' + errors); 
+        }
+        
+        
+    
+        console.log("Result: " + res + typeof(res) );
+        //console.log(JSON.stringify(res) ) ;
+        //var t = JSON.parse(res) ;
+        //console.log(t.hostname + " | " + t.username);
+       
+        
+
+    });
+    
+    
+    
 
 
   jftp.put('/var/www/html/index.html', 'index.html', function(hadError) {
