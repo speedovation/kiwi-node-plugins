@@ -53,6 +53,26 @@ ftp.test = function() {
         
 
     });
+    
+    
+      api.request('set_data',['ftp','listServerFiles', ['Archana is crazy','Mayon'] ], function(err, errors, res){
+    
+        if(err)
+        {
+            this.error = errors;
+            console.log('Err:' + errors); 
+        }
+        
+        
+    
+        console.log("Result: " + res + typeof(res) );
+        //console.log(JSON.stringify(res) ) ;
+        //var t = JSON.parse(res) ;
+        //console.log(t.hostname + " | " + t.username);
+       
+        
+
+    });
 
 
   jftp.put('/var/www/html/index.html', 'index.html', function(hadError) {
