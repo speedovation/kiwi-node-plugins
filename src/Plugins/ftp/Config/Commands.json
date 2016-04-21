@@ -9,7 +9,6 @@
             "trigger_event": {
                 "command": ["GUI", "ftp"],
                 "fullcommand": "",
-                "command": [],
                 "available_api_methods": [
                     "selected_text",
                     "file_path"
